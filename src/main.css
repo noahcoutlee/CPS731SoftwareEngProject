@@ -1,0 +1,630 @@
+/* main.css */
+
+/* Universal */
+html, body {
+  margin: 0;
+  padding: 0;
+  font-family: Arial, sans-serif;
+}
+
+/* Nav/Search Bar */
+.navbar {
+  display: flex; /* Aligns items horizontally */
+  align-items: center; /* Vertically aligns items */
+  justify-content: space-between; /* Space out the elements */
+  padding: 10px; /* Adds padding */
+  background-color: #4d8c57; /* Navbar background color */
+  box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.1); /* Optional: Subtle shadow */
+}
+
+.icon-button {
+  background: none;
+  border: none;
+  cursor: pointer;
+  font-size: 1.5rem; /* Increases icon size */
+  margin: 0 10px; /* Adds space between icons */
+}
+
+.search-container {
+  flex: 1; /* Makes the search container take all remaining space */
+  display: flex; /* For aligning elements inside */
+  justify-content: center;
+  position: relative; /* To position the dropdown below the search bar */
+}
+
+.search-bar {
+  width: 100%; /* Search bar takes full width of its container */
+  padding: 8px; /* Adds padding for usability */
+  border: 1px solid #ccc; /* Adds a border */
+  border-radius: 4px; /* Adds slight rounded corners */
+  box-sizing: border-box; /* Ensures padding doesn’t affect size */
+}
+
+.search-results {
+  position: absolute;
+  top: 100%; /* Directly below the input */
+  left: 0;
+  z-index: 1000;
+  background-color: white;
+  border: 1px solid #ddd;
+  border-radius: 4px;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+  max-height: 200px;
+  overflow-y: auto;
+  width: 100%; /* Match input width */
+}
+
+.search-result-item {
+  padding: 8px;
+  cursor: pointer;
+  transition: background-color 0.2s;
+}
+
+.search-result-item:hover {
+  background-color: #f0f0f0;
+}
+
+.search-results p {
+  padding: 8px;
+  color: #555;
+  font-size: 14px;
+}
+
+.profile-dropdown {
+  position: absolute;
+  top: 100%;
+  right: 0;
+  background-color: #fff;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  border-radius: 5px;
+  overflow: hidden;
+  z-index: 1000;
+}
+
+.profile-dropdown-item {
+  padding: 10px;
+  cursor: pointer;
+  transition: background-color 0.2s;
+}
+
+.profile-dropdown-item:hover {
+  background-color: #f0f0f0;
+}
+
+/* Profile Page */
+.profile {
+  padding: 20px;
+}
+
+.profile-header {
+  display: flex;
+  align-items: center;
+}
+
+.profile-pic {
+  width: 100px;
+  height: 100px;
+  border-radius: 50%;
+  margin-right: 20px;
+}
+
+.follow-button {
+  background-color: #007bff;
+  color: white;
+  padding: 5px 10px;
+  border: none;
+  cursor: pointer;
+  margin-left: 10px;
+  border-radius: 5px;
+  transition: background-color 0.3s;
+}
+
+.follow-button.unfollow {
+  background-color: #dc3545; /* Red for unfollow */
+}
+
+.follow-button:hover {
+  background-color: #0056b3; /* Darker blue on hover */
+}
+
+.follow-button.unfollow:hover {
+  background-color: #c82333; /* Darker red on hover */
+}
+
+
+.section {
+  margin-top: 20px;
+  padding: 10px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+}
+
+.section h3 {
+  margin: 0 0 10px;
+}
+
+.create-post {
+  background-color: #28a745;
+  color: white;
+  padding: 5px 10px;
+  border: none;
+  cursor: pointer;
+  margin-bottom: 10px;
+}
+
+.post {
+  border-top: 1px solid #ddd;
+  padding: 10px 0;
+}
+
+.post-options button {
+  background: none;
+  border: none;
+  color: #007bff;
+  margin-right: 5px;
+  cursor: pointer;
+}
+
+.post-options button:hover {
+  color: #0056b3;
+}
+
+.safe-button {
+  background: none;
+  border: none;
+  color: #007bff;
+  margin-right: 5px;
+  cursor: pointer;
+}
+
+.safe-button:hover {
+  color: #0056b3;
+}
+
+.report-button {
+  background: none;
+  border: none;
+  color: #dc3545; /* Red color for report */
+  cursor: pointer;
+  margin-left: 10px;
+}
+
+.report-button:hover {
+  color: #c82333; /* Darker red on hover */
+}
+
+.success-message {
+  position: fixed;
+  top: 10px;
+  left: 50%;
+  transform: translateX(-50%);
+  background-color: #28a745;
+  color: white;
+  padding: 10px 20px;
+  border-radius: 5px;
+  z-index: 1000;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.2);
+  transition: opacity 0.3s ease;
+}
+
+.modal-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: rgba(0, 0, 0, 0.5);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.modal-content {
+  background: white;
+  padding: 20px;
+  border-radius: 5px;
+  width: 400px;
+  max-width: 100%;
+  box-sizing: border-box; /* Ensure padding doesn't affect the width */
+}
+
+.modal-content input,
+.modal-content textarea {
+  width: 100%;
+  margin-bottom: 10px;
+  padding: 10px;
+  border: 1px solid #ddd;
+  border-radius: 5px;
+  box-sizing: border-box; /* Ensure padding doesn't affect the width */
+}
+
+.modal-content textarea {
+  resize: none; /* Make the textarea non-resizable */
+}
+
+.modal-content button {
+  margin-right: 10px;
+  padding: 10px 20px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+.modal-content button:hover {
+  background-color: #007bff;
+  color: white;
+}
+
+.feed-container {
+  margin: 20px;
+}
+
+.post {
+  border: 1px solid #ddd;
+  border-radius: 8px;
+  padding: 16px;
+  margin-bottom: 20px;
+  background-color: #fff;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.post-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.profile-picture {
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  margin-right: 16px;
+}
+
+.post-info {
+  flex-grow: 1;
+}
+
+.user-name {
+  margin: 0;
+  font-size: 18px;
+  font-weight: bold;
+  cursor: pointer;
+  text-decoration: underline;
+}
+
+.post-title {
+  margin: 5px 0 0 0;
+  font-size: 16px;
+  color: #555;
+}
+
+.post-body {
+  margin: 5px 0;
+  font-size: 14px;
+  color: #333;
+}
+
+.followings-container {
+  margin: 20px;
+  padding: 20px;
+  border-radius: 8px;
+  background-color: #fff;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.following {
+  display: flex;
+  align-items: center;
+  border-bottom: 1px solid #ddd;
+  padding: 10px 0;
+}
+
+.following:last-child {
+  border-bottom: none;
+}
+
+.following-info {
+  margin-left: 16px;
+}
+
+.user-name {
+  margin: 0;
+  font-size: 18px;
+  font-weight: bold;
+}
+
+.user-email {
+  margin: 0;
+  font-size: 14px;
+  color: #555;
+}
+
+.user-summary {
+  margin: 5px 0 0;
+  font-size: 14px;
+  color: #333;
+}
+
+.notifications-container {
+  margin: 20px;
+  padding: 20px;
+  border-radius: 8px;
+  background-color: #fff;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.notification {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  border-bottom: 1px solid #ddd;
+  padding: 10px 0;
+}
+
+.notification:last-child {
+  border-bottom: none;
+}
+
+.notification-profile-picture {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  margin-right: 16px;
+}
+
+.notification-info {
+  flex-grow: 1;
+  font-size: 16px;
+  color: #333;
+}
+
+.mark-as-read {
+  background: none;
+  border: none;
+  font-size: 20px;
+  cursor: pointer;
+  color: green;
+  padding: 0;
+}
+
+body {
+  font-family: Arial, sans-serif;
+  background-color: #f4f4f4;
+  margin: 0;
+  padding: 0;
+}
+
+.edit-profile-container {
+  max-width: 600px;
+  margin: 50px auto;
+  padding: 20px;
+  background-color: #fff;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  border-radius: 8px;
+}
+
+.edit-profile-container h2 {
+  text-align: center;
+  margin-bottom: 20px;
+}
+
+.edit-profile-container label {
+  display: block;
+  margin-bottom: 10px;
+  font-weight: bold;
+}
+
+.edit-profile-container input[type="text"],
+.edit-profile-container input[type="email"],
+.edit-profile-container textarea,
+.edit-profile-container input[type="file"] {
+  width: 100%;
+  padding: 10px;
+  margin-bottom: 20px;
+  border: 1px solid #ddd;
+  border-radius: 5px;
+  box-sizing: border-box;
+}
+
+.edit-profile-container textarea {
+  resize: none; /* Make the textarea non-resizable */
+  height: 100px; /* Set a fixed height */
+}
+
+.edit-profile-container button {
+  padding: 10px 20px;
+  background-color: #007bff;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+.edit-profile-container button:hover {
+  background-color: #0056b3;
+}
+
+.profile-pic-preview {
+  display: block;
+  margin: 0 auto 20px;
+  width: 100px;
+  height: 100px;
+  border-radius: 50%;
+  object-fit: cover;
+}
+
+.back-button {
+  display: inline-block;
+  margin-bottom: 20px;
+  padding: 10px 20px;
+  background-color: #6c757d;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+.back-button:hover {
+  background-color: #5a6268;
+}
+
+/* Container for the login page */
+.login-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  background-color: #f4f4f4;
+}
+
+/* Form styling */
+.login-form {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  background-color: #fff;
+  padding: 40px;
+  border-radius: 8px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+/* Input field styling */
+.login-input {
+  padding: 10px;
+  margin: 10px 0;
+  width: 100%;
+  border-radius: 5px;
+  border: 1px solid #ddd;
+  font-size: 16px;
+}
+
+/* Button styling */
+.login-button {
+  background-color: #007bff;
+  color: #fff;
+  padding: 10px 20px;
+  font-size: 18px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  transition: all 0.3s ease;
+  margin-top: 10px;
+}
+
+.login-button:hover {
+  background-color: #0056b3;
+}
+
+/* Toggle button styling */
+.toggle-button {
+  background-color: transparent;
+  color: #007bff;
+  padding: 10px 20px;
+  font-size: 14px;
+  border: none;
+  cursor: pointer;
+  text-decoration: underline;
+  margin-top: 10px;
+}
+
+.toggle-button:hover {
+  color: #0056b3;
+}
+
+/* Container for the change password page */
+.change-password-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  background-color: #f4f4f4;
+}
+
+/* Form styling */
+.change-password-form {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  background-color: #fff;
+  padding: 40px;
+  border-radius: 8px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+/* Input field styling */
+.change-password-input {
+  padding: 10px;
+  margin: 10px 0;
+  width: 100%;
+  border-radius: 5px;
+  border: 1px solid #ddd;
+  font-size: 16px;
+}
+
+/* Button styling */
+.change-password-button {
+  background-color: #007bff;
+  color: #fff;
+  padding: 10px 20px;
+  font-size: 18px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  transition: all 0.3s ease;
+  margin-top: 10px;
+}
+
+.change-password-button:hover {
+  background-color: #0056b3;
+}
+
+/* Container for the forgot password page */
+.forgot-password-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  background-color: #f4f4f4;
+}
+
+/* Form styling */
+.forgot-password-form {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  background-color: #fff;
+  padding: 40px;
+  border-radius: 8px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+/* Input field styling */
+.forgot-password-input {
+  padding: 10px;
+  margin: 10px 0;
+  width: 100%;
+  border-radius: 5px;
+  border: 1px solid #ddd;
+  font-size: 16px;
+}
+
+/* Button styling */
+.forgot-password-button {
+  background-color: #007bff;
+  color: #fff;
+  padding: 10px 20px;
+  font-size: 18px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  transition: all 0.3s ease;
+  margin-top: 10px;
+}
+
+.forgot-password-button:hover {
+  background-color: #0056b3;
+}
